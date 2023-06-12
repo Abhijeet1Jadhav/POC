@@ -3,9 +3,6 @@ name: Release
   push:
     branches:
       - master
-      - next
-      - beta
-      - "*.x"
 permissions:
   contents: read # for checkout
 jobs:
@@ -26,5 +23,5 @@ jobs:
       - run: npm ci
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_GIT_TOKEN }}
+          NPM_TOKEN: ${{ secrets.RELEASE_NPM_TOKEN }}
